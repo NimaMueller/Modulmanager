@@ -20,4 +20,4 @@ WORKDIR /modulmanager
 COPY --from=build /modulmanager/target/modulmanager-3.2.5.jar .
 
 # Specify the command to run your application
-CMD ["java", "-jar", "modulmanager.jar"]
+CMD ["java", "-jar", "modulmanager-3.2.5.jar"]
