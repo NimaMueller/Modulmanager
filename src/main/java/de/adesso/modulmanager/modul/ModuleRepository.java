@@ -6,10 +6,6 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface ModuleRepository extends JpaRepository<Module, Integer> {
 
-    Module findByModuleId(long moduleId);
+    Module findByModuleId(int moduleId);
 
- /*    @Modifying
-    @Transactional
-    @Query("UPDATE Module m SET m.description = :description WHERE m.moduleId = :moduleId")
-    void updateModulebyModuleById(@Param("moduleId") Integer moduleId, @Param("description") String description); */
 }

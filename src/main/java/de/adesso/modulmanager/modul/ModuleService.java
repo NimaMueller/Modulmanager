@@ -32,17 +32,30 @@ public class ModuleService {
         return moduleRepository.findAll();
     }
 
- /*    public Module updateModule(Module module) {
-        moduleRepository.updateModulebyModuleById(module.getModuleId(), module.getDescription());
-        moduleRepository.flush();
+    public Module updateModule(Module module) {
+
+        Module m = moduleRepository.findByModuleId(module.getModuleId());
+
+        if (module.getDescription() != null) {
+            m.setDescription(module.getDescription());
+        } else if (module.getCP() != null) {
+            m.setCP(module.getCP());
+        }
         return module;
     }
- */
+
     public String deleteModule(int moduleId) {
-
         moduleRepository.delete(moduleRepository.findByModuleId(moduleId));
-
         return "Student with matriklNr: " + moduleId + " deleted successfully!";
+    }
+
+    public boolean checkForModule(int moduleId) {
+        Module module = moduleRepository.findByModuleId(moduleId);
+        if (module != null) {
+            return true;
+        } else {
+            return false;
+        }
     }
 
 }
