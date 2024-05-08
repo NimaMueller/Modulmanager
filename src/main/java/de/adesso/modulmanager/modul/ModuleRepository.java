@@ -13,12 +13,10 @@ import jakarta.transaction.Transactional;
 @Repository
 public interface ModuleRepository extends JpaRepository<Module, Integer> {
 
-    Module findByModuleId(long moduleId);
+    Module findByModuleId(int moduleId);
 
- 
+ /*    @Modifying
     @Transactional
-    @Query("Select SUM(cP) from Module where moduleId in :moduleIds")
-    Integer calculateCpByModuleIds(@Param("moduleIds") List<Integer> moduleIds); 
-
-    
+    @Query("UPDATE Module m SET m.description = :description WHERE m.moduleId = :moduleId")
+    void updateModulebyModuleById(@Param("moduleId") Integer moduleId, @Param("description") String description); */
 }

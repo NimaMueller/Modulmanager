@@ -30,16 +30,13 @@ public class ModuleService {
     }
 
     public String createModule(Module module) {
-
         try {
             moduleRepository.save(module);
             moduleRepository.flush();
             return "Module: " + module.getDescription() + " created successfully!";
         } catch (Exception e) {
-            System.out.println(
-                    "An error occurred while creating a new Module with ID: " + module.getModuleId() + e.getMessage());
+            return "An error occurred while creating a new Module with ID: " + module.getModuleId() + e.getMessage();
         }
-        return "AMK";
     }
 
     public Module getModule(int moduleId) {
@@ -50,20 +47,40 @@ public class ModuleService {
         return moduleRepository.findAll();
     }
 
- /*    public Module updateModule(Module module) {
-        moduleRepository.updateModulebyModuleById(module.getModuleId(), module.getDescription());
+    public Module updateModule(Module module) {
+
+        Module m = moduleRepository.findByModuleId(module.getModuleId());
+
+        if (module.getDescription() != null) {
+            m.setDescription(module.getDescription());
+        } 
+        
+        if (module.getCp() != null) {
+            m.setCp(module.getCp());
+        }
+
+        moduleRepository.save(m);
         moduleRepository.flush();
+
         return module;
     }
- */
-    public String deleteModule(int moduleId) {
 
+    public String deleteModule(int moduleId) {
         moduleRepository.delete(moduleRepository.findByModuleId(moduleId));
 
-        return "Module " + moduleId + " deleted successfully!";
+        return "Student with matriklNr: " + moduleId + " deleted successfully!";
     }
     
    
 
+
+    public boolean checkForModule(int moduleId) {
+        Module module = moduleRepository.findByModuleId(moduleId);
+        if (module != null) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 
 }

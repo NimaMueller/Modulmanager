@@ -32,34 +32,6 @@ public class Module {
 
     @Column(name = "c_p")
     private int cP;
-
-/*     public String checkIfRequiredCreditpointsReached(Integer moduleId) {
-
-        int totalCreditPoints=0;
-
-     for (int cP :moduleIds)
-
-        if (totalCreditPoints >= 150) {
-
-            System.out.println("Student is able to write his Bachelor Thesis");
-        }
-
-    }  */
-    
-
- /*    @Column (name= "course_id")
-    private int courseId; */
-
-
-  /*   enum Wirtschaftsinformatik {
-
-        Algebra,
-        ObjektorientiertesProgrammieren,
-        Betriebswirtschaftslehre,
-        GrundlagenWirtschaftsInformatik,
-
-    } */
-  
 /* 
     @OneToMany(mappedBy = "module")
     Set<SignUpFoModule> signUp; */
