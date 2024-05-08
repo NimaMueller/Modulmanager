@@ -14,7 +14,7 @@ RUN mvn clean package
 # Use a lightweight base image for running the application
 FROM amazoncorretto:21-alpine
 # Set the working directory in the container
-WORKDIR /modulmanager
+WORKDIR /modulemanager
 
 # Copy the JAR file from the build stage to the final image
 COPY --from=build /modulmanager/target/modulmanager-3.2.5.jar .
