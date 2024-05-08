@@ -31,9 +31,7 @@ public class Module {
     private String description;
 
     @Column(name = "c_p")
-    private int cP;
-/* 
-    @OneToMany(mappedBy = "module")
-    Set<SignUpFoModule> signUp; */
+    private Integer cp;
+
 
 }
