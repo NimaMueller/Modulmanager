@@ -9,7 +9,11 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
+
 
 @RestController
 @RequestMapping("api/v1/module")
@@ -29,6 +33,12 @@ public class ModuleController {
   public Module getModule(@PathVariable int moduleId) {
     return moduleService.getModule(moduleId);
   }
+
+  @PostMapping("calculateCp")
+  public Integer calculateCp(@RequestBody List<Integer> cPList) {
+      return moduleService.calculateCp(cPList);
+  }
+  
 
   // Get every Module in the DB.
   @GetMapping("getAll")

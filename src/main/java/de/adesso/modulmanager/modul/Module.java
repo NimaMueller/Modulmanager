@@ -1,5 +1,7 @@
 package de.adesso.modulmanager.modul;
 
+
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
@@ -19,6 +21,8 @@ import lombok.ToString;
 @Entity
 public class Module {
 
+
+
     @Id
     @Column(name = "module_id")
     private int moduleId;
@@ -28,6 +32,34 @@ public class Module {
 
     @Column(name = "c_p")
     private int cP;
+
+/*     public String checkIfRequiredCreditpointsReached(Integer moduleId) {
+
+        int totalCreditPoints=0;
+
+     for (int cP :moduleIds)
+
+        if (totalCreditPoints >= 150) {
+
+            System.out.println("Student is able to write his Bachelor Thesis");
+        }
+
+    }  */
+    
+
+ /*    @Column (name= "course_id")
+    private int courseId; */
+
+
+  /*   enum Wirtschaftsinformatik {
+
+        Algebra,
+        ObjektorientiertesProgrammieren,
+        Betriebswirtschaftslehre,
+        GrundlagenWirtschaftsInformatik,
+
+    } */
+  
 /* 
     @OneToMany(mappedBy = "module")
     Set<SignUpFoModule> signUp; */
