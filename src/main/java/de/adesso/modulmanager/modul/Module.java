@@ -27,6 +27,6 @@ public class Module {
     private String description;
 
     @Column(name = "c_p")
-    private Integer cP;
+    private Integer cp;
 
 }

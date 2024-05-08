@@ -12,16 +12,13 @@ public class ModuleService {
     ModuleRepository moduleRepository;
 
     public String createModule(Module module) {
-
         try {
             moduleRepository.save(module);
             moduleRepository.flush();
             return "Module: " + module.getDescription() + " created successfully!";
         } catch (Exception e) {
-            System.out.println(
-                    "An error occurred while creating a new Module with ID: " + module.getModuleId() + e.getMessage());
+            return "An error occurred while creating a new Module with ID: " + module.getModuleId() + e.getMessage();
         }
-        return "AMK";
     }
 
     public Module getModule(int moduleId) {
@@ -38,9 +35,15 @@ public class ModuleService {
 
         if (module.getDescription() != null) {
             m.setDescription(module.getDescription());
-        } else if (module.getCP() != null) {
-            m.setCP(module.getCP());
+        } 
+        
+        if (module.getCp() != null) {
+            m.setCp(module.getCp());
         }
+
+        moduleRepository.save(m);
+        moduleRepository.flush();
+
         return module;
     }
 
