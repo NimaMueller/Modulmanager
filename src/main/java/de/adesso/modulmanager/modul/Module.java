@@ -1,5 +1,7 @@
 package de.adesso.modulmanager.modul;
 
+
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
@@ -19,6 +21,8 @@ import lombok.ToString;
 @Entity
 public class Module {
 
+
+
     @Id
     @Column(name = "module_id")
     private int moduleId;
@@ -27,9 +31,7 @@ public class Module {
     private String description;
 
     @Column(name = "c_p")
-    private int cP;
-/* 
-    @OneToMany(mappedBy = "module")
-    Set<SignUpFoModule> signUp; */
+    private Integer cp;
+
 
 }
