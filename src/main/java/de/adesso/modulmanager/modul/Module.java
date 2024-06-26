@@ -1,7 +1,5 @@
 package de.adesso.modulmanager.modul;
 
-
-
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
@@ -21,17 +19,14 @@ import lombok.ToString;
 @Entity
 public class Module {
 
-
-
     @Id
     @Column(name = "module_id")
-    private int moduleId;
+    private String moduleId;
 
     @Column(name = "description")
     private String description;
 
     @Column(name = "c_p")
     private Integer cp;
-
 
 }

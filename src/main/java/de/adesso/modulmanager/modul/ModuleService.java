@@ -24,11 +24,11 @@ public class ModuleService {
             moduleRepository.flush();
             return "Module: " + module.getDescription() + " created successfully!";
         } catch (Exception e) {
-            return "An error occurred while creating a new Module with ID: " + module.getModuleId() + e.getMessage();
+            return "An error occurred while creating a new Module with ID: " + module.getModuleId() + " " + e.getMessage();
         }
     }
 
-    public Module getModule(int moduleId) {
+    public Module getModule(String moduleId) {
         return moduleRepository.findByModuleId(moduleId);
     }
 
@@ -54,13 +54,13 @@ public class ModuleService {
         return module;
     }
 
-    public String deleteModule(int moduleId) {
+    public String deleteModule(String moduleId) {
         moduleRepository.delete(moduleRepository.findByModuleId(moduleId));
 
         return "Student with matriklNr: " + moduleId + " deleted successfully!";
     }
 
-    public boolean checkForModule(int moduleId) {
+    public boolean checkForModule(String moduleId) {
         Module module = moduleRepository.findByModuleId(moduleId);
         if (module != null) {
             return true;

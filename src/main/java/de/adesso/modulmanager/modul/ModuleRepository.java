@@ -10,14 +10,12 @@ import org.springframework.stereotype.Repository;
 import jakarta.transaction.Transactional;
 
 @Repository
-public interface ModuleRepository extends JpaRepository<Module, Integer> {
+public interface ModuleRepository extends JpaRepository<Module, String> {
 
-    Module findByModuleId(int moduleId);
+    Module findByModuleId(String moduleId);
 
- 
     @Transactional
     @Query("Select SUM(cp) from Module where moduleId in :moduleIds")
-    Integer calculateCpByModuleIds(@Param("moduleIds") List<Integer> moduleIds); 
+    Integer calculateCpByModuleIds(@Param("moduleIds") List<Integer> moduleIds);
 
-    
 }

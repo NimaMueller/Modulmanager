@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-
 @RestController
 @RequestMapping("api/v1/module")
 public class ModuleController {
@@ -28,15 +27,14 @@ public class ModuleController {
 
   // Get a Module in the DB by it's Id.
   @GetMapping("{moduleId}")
-  public Module getModule(@PathVariable int moduleId) {
+  public Module getModule(@PathVariable String moduleId) {
     return moduleService.getModule(moduleId);
   }
 
   @PostMapping("calculateCp")
   public Integer calculateCp(@RequestBody List<Integer> cPList) {
-      return moduleService.calculateCp(cPList);
+    return moduleService.calculateCp(cPList);
   }
-  
 
   // Get every Module in the DB.
   @GetMapping("getAll")
@@ -52,12 +50,12 @@ public class ModuleController {
 
   // Delete a Module from the DB.
   @DeleteMapping("delete/{moduleId}")
-  public String deleteModule(@PathVariable int moduleId) {
+  public String deleteModule(@PathVariable String moduleId) {
     return moduleService.deleteModule(moduleId);
   }
 
   @GetMapping("checkForModule/{moduleId}")
-  public boolean checkForModule(@PathVariable Integer moduleId) {
+  public boolean checkForModule(@PathVariable String moduleId) {
     return moduleService.checkForModule(moduleId);
   }
 
